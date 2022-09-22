@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../styles/components/modal.module.css";
 
+import PropTypes from "prop-types";
+
 export const Modal = ({ isOpen = true, children, onClick }) => {
-
-
   return (
     <div
       className={styles.modal}
@@ -17,4 +17,13 @@ export const Modal = ({ isOpen = true, children, onClick }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  onClick: PropTypes.func.isRequired,
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../styles/components/button.module.css";
+import PropTypes from "prop-types";
 
 export const Button = ({ onClick, text, color }) => {
   return (
@@ -9,4 +10,11 @@ export const Button = ({ onClick, text, color }) => {
       {text}
     </button>
   );
+};
+
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
