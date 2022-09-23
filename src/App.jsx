@@ -23,7 +23,7 @@ function App() {
       <div className={style.buttonContainer}>
 
       <Button onClick={handleColor} color={"#f44336"} text={"Rojo"} />
-      <Button onClick={handleColor} color={"#2196f3"} text={"Blue"} />
+      <Button onClick={handleColor} color={"#2196f3"} text={"Azul"} />
       </div>
 
       <Modal isOpen={isOpen} onClick={handleModal}>
