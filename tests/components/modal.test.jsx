@@ -1,22 +1,38 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-// import { Button } from "../../src/components/Button";
+import { Modal } from "../../src/components/Modal";
 
-// jest.mock("../../src/styles/components/button.module.css", () => ({
-//   button: "button data class",
-// }));
+jest.mock("../../src/styles/components/modal.module.css", () => ({
+  modal: "modal class success",
+}));
 
-// describe("Test In App", () => {
-//   test("should set color red in background", () => {
-//     const handleColor = jest.fn();
+describe("Test In Modal Comopnents", () => {
+  test("should show display none and class correct", () => {
+    const handleIsOpen = jest.fn();
+    const dataCholde = <>Hello Test</>;
 
-//     render(<Button onClick={handleColor} color={"#f44336"} text={"Rojo"} />);
+    render(
+      <Modal isOpen={false} children={dataCholde} onClick={handleIsOpen} />
+    );
 
-//     // screen.debug();
-//     const btn = screen.getByRole("button");
+    // screen.debug();
+    const modal = screen.getByTestId("modal-test");
 
-//     expect(btn.style.background).toBe("rgb(244, 67, 54)");
-//     expect(btn.className).toBe("button data class");
-//   });
+    expect(modal.style.display).toBe("none");
+    expect(modal.className).toBe("modal class success");
+  });
+
+  test("should show display block beacuse isOpen is true", () => {
+    const handleIsOpen = jest.fn();
+    const dataCholde = <>Hello Test</>;
+
+    render(
+      <Modal isOpen={true} children={dataCholde} onClick={handleIsOpen} />
+    );
+
+    const modal = screen.getByTestId("modal-test");
+
+    expect(modal.style.display).toBe("block");
+  });
 
 
-// });
+});

@@ -6,11 +6,16 @@ import PropTypes from "prop-types";
 export const Modal = ({ isOpen = true, children, onClick }) => {
   return (
     <div
+      data-testid="modal-test"
       className={styles.modal}
       style={{ display: isOpen ? "block" : "none" }}
     >
       <div className={styles.modalContent}>
-        <span className={styles.close} onClick={() => onClick(false)}>
+        <span
+          data-testid="close-button"
+          className={styles.close}
+          onClick={() => onClick(false)}
+        >
           &times;
         </span>
         {children}
